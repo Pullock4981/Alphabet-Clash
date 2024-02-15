@@ -36,7 +36,7 @@
 
         <!-- home section -->
 
-        <section class="home min-h-screen flex flex-col justify-center items-center hidden">
+        <section id="home" class="min-h-screen flex flex-col justify-center items-center">
 
             <div class="flex flex-col items-center gap-10">
 
@@ -46,7 +46,7 @@
                 <p class="text-[#FFFFFF] lg:text-2xl md:text-2xl">
                     Unleash Your Keyboard Kung Fu : Press “Enter” to Play
                 </p>
-                <button
+                <button onclick="play()"
                     class="text-2xl font-medium text-[#010313] bg-[#FFFFFF] px-6 py-2 rounded-lg hover:bg-orange-500">
                     Play Now
                 </button>
@@ -57,7 +57,7 @@
 
         <!-- play-ground section -->
 
-        <section class="play-ground pb-8 lg:pb-0">
+        <section id="play-ground" class=" pb-8 lg:pb-0 hidden">
 
             <div class="flex flex-col items-center gap-8 lg:gap-16 lg:pt-20 pt-10">
 
@@ -115,7 +115,7 @@
 
                 <!-- life score -->
 
-                <div class="flex justify-between w-10/12 lg:w-4/6">
+                <div class="flex justify-between w-full lg:w-4/6">
                     <button
                         class="btn bg-[#894189] border-0 text-[#FFFFFF] font-medium text-2xl px-8 rounded-full hover:bg-orange-500">
                         Life
@@ -174,6 +174,10 @@
         </section>
 
     </main>
+
+    <script src="utility.js"></script>
+
+    <script src="alpha.js"></script>
 
 </body>
 
