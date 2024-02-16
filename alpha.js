@@ -18,7 +18,7 @@ function handleKeyBtnPress(event) {
     console.log('Player pressed', playerPressed);
 
     if (playerPressed === 'Escape') {
-        gameOver();
+        exit();
     }
 
     const currentAlphaElement = document.getElementById('current-alphabet');
@@ -112,6 +112,10 @@ function gameOver() {
 
     const currentAlphabet = geElementTextById('current-alphabet');
     removeBgColorById(currentAlphabet);
+}
+
+function exit() {
+    showElementById('home');
 }
 
 function playAgain() {
