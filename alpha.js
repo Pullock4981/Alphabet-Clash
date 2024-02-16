@@ -26,14 +26,49 @@ function handleKeyBtnPress(event) {
     // check
     if (playerPressed === currentAlphabet) {
         console.log('you get a point');
-        console.log('you have pressed currently:', currentAlphabet);
+
+        // score found
+        const currentScoreElement = document.getElementById('current-score');
+        const currentScoreText = currentScoreElement.innerText;
+        // console.log(currentScoreText);
+        const currentScore = parseInt(currentScoreText);
+        console.log(currentScore);
+
+        // increase score
+
+        const newScore = currentScore + 1;
+
+        // set new score
+
+        currentScoreElement.innerText = newScore;
+
         removeBgColorById(currentAlphabet);
         continueGame();
     }
     else {
+
         console.log('you missed a life');
+
+        const currentLifeElement = document.getElementById('current-life');
+        const currentLifeText = currentLifeElement.innerText;
+        const currentLife = parseInt(currentLifeText);
+        // console.log(currentLife);
+
+        const newLife = currentLife - 1;
+
+        currentLifeElement.innerText = newLife;
+
+        if (currentLife === 0) {
+            gameOver();
+        }
+
+
     }
+
 }
+
+
+
 // key press
 document.addEventListener('keyup', handleKeyBtnPress);
 
@@ -55,8 +90,18 @@ function continueGame() {
 
 function play() {
     hideElementById('home');
+    hideElementById('final-score')
     showElementById('play-ground');
     continueGame();
 }
 
+function gameOver() {
+    hideElementById('play-ground');
+    showElementById('final-score');
+}
+
+function playAgain(){
+    hideElementById('play-again');
+    showElementById('play-ground');
+}
 
