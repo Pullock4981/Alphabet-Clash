@@ -17,6 +17,10 @@ function handleKeyBtnPress(event) {
     const playerPressed = event.key;
     console.log('Player pressed', playerPressed);
 
+    if (playerPressed === 'Escaped') {
+        gameOver();
+    }
+
     const currentAlphaElement = document.getElementById('current-alphabet');
     const currentAlphabet = currentAlphaElement.innerText.toLowerCase();
     // const expectedAlphabet = currentAlphabet.toLowerCase();
@@ -92,15 +96,25 @@ function play() {
     hideElementById('home');
     hideElementById('final-score')
     showElementById('play-ground');
+
+    // reset score and life
+    setElementValueById('current-life', 5);
+    setElementValueById('current-score', 0);
     continueGame();
 }
 
 function gameOver() {
     hideElementById('play-ground');
     showElementById('final-score');
+    // update final score
+    const gameScore = getTextElementValueById('current-score');
+    setElementValueById('game-score', gameScore)
+
+    const currentAlphabet = geElementTextById('current-alphabet');
+    removeBgColorById(currentAlphabet);
 }
 
-function playAgain(){
+function playAgain() {
     hideElementById('play-again');
     showElementById('play-ground');
 }
